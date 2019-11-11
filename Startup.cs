@@ -1,3 +1,4 @@
+using aspnet_core_warmup.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -19,8 +20,9 @@ namespace aspnet_core_warmup
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHostedService<BackgroundServiceConsole>();
+            services.AddHostedService<MigrationHostedService>();
             services.AddControllers();
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
