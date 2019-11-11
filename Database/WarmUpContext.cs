@@ -17,6 +17,12 @@ namespace aspnet_core_warmup.Database
         {
             this._logger = logger;
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseInMemoryDatabase("testing");
+        }
+        
         public async Task MigrateAsync()
         {
             await Database.GetPendingMigrationsAsync().ContinueWith(async pm =>
